@@ -62,7 +62,7 @@ function ratesAverage(array) {
             return sum + num;
             
         }
-        else {
+        else if (avgRate == '') {
             return sum + 0;
         }
     }, 0);
@@ -93,38 +93,92 @@ function dramaMoviesRate(array) {
 
 }
 // Iteration 6: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(array) {
-    let time = array.map (function(movie) {
-        return movie.duration;
+function turnHoursToMinutes(movies) {
+    let newAr = movies.concat();
+
+    let hour = newAr.map (function (movie) {
+        return ( movie.duration.substring(0,1));
     })
 
-    let hour = array.map(function(movie){
-        return Number(movie.charAt(0));
+    hour.forEach(function (element) {
+        return (hour * 60);
     })
 
-    let minutes = array.map(function(movie){
-        if(array.duration.length == 7) {
-            return Number(movie.charAt(4))
+    let minutes = newAr.map(function(movie){
+        if (movie.duration.length == 0) {
+            return 0;
         }
-        else{
-            return Number(movie.charAt(4)
-             + movie.charAt(5));
+        if(movie.duration.length == 7) {
+            return (movie.duration.substring(4,5));
         }
 
+        else if (movie.duration.length == 8){
+            return (movie.duration.substring(4,6));
+        }
+    })
         
+        // add nums now
+        
+
+
+
+         
+
+        return newAr;
+    
+    
+    
+    
+}
+
+//split, slice, substring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function turnHoursToMinutes(array) {
+    let time = array.concat();
+
+    let hour = time.map(function(movie){
+        return Number(movie.duration.charAt(0));
+    })
+
+    let minutes = time.map(function(movie){
+        if(movie.duration.length == 7) {
+            return Number(movie.duration.charAt(4))
+        }
+        else if (movie.duration.length == 8){
+            return Number(movie.duration.charAt(4)
+             + movie.duration.charAt(5));
+        }
+
     })
     
     hour.forEach(element => {
         return element * 60;
     });
-    
-    let duration;
-    duration.forEach(function (hour, minutes) {
-        return (hour + minutes);
+
+
+    var durate = hour.map ( function(timeCom) {
+        return Number(hour + minutes);
     })
     
+    for (var i = 0; i > time; i++) {
+        time.splice(i, 1, durate[i]);
+    };
     
-}
+    return time;
+}*/
 
 
 // BONUS Iteration: Best yearly rate average - Best yearly rate average
